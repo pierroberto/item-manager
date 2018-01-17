@@ -1,0 +1,44 @@
+.dashboard {
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard__container {
+  display: inline-block;
+  width: 100%;
+  padding: 20px 0;
+  background-color: lime;
+}
+
+.dashboard__home {
+  display: inline-block;
+}
+
+.dashboard__item {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.dashboard__list {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+  list-style: none;
+}
+
+.dashboard__logo {
+  display: inline-block;
+  width: 50%;
+  padding: 0 10px;
+}
+
+.dashboard__logoicon {
+  display: inline-block;
+}
+
+.dashboard__logotext {
+  display: inline-block;
+  padding: 0 10px;
+}
