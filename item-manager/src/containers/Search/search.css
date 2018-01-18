@@ -1,0 +1,12 @@
+.search {
+}
+
+.search__dropdown {
+  width: 20%;
+  background-color: blue;
+  padding: 10px 20px;
+}
+
+.Dropdown-option {
+  background-color: lime;
+}
