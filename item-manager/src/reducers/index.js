@@ -1,15 +1,15 @@
 import * as types from "../actions/types";
 
 const defaultState = {
-  saveCompanyInfo: null
+  list: []
 };
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case types.SAVE_COMPANY_INFO:
+    case types.GENERATE_LIST:
       return {
         ...state,
-        saveCompanyInfo: action.data
+        list: action.list
       };
     default:
       return state;

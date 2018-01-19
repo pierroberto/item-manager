@@ -1,8 +1,8 @@
 import * as types from "./types";
 
-export const saveCompanyInfo = data => {
+export const generateList = list => {
   return {
-    type: types.SAVE_COMPANY_INFO,
-    data
+    type: types.GENERATE_LIST,
+    list
   };
 };

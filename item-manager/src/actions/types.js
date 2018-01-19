@@ -1,1 +1,1 @@
-export const SAVE_COMPANY_INFO = "SAVE_COMPANY_INFO";
+export const GENERATE_LIST = "GENERATE_LIST";

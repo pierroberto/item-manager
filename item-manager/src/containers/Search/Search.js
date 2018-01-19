@@ -5,7 +5,8 @@ import "./search.css";
 import "./dropdown.css";
 import db from "../../items.json";
 import Dashboard from "../../components/Dashboard/Dashboard";
-
+import ListView from "../../components/ListView/ListView";
+import { generateList } from "../../actions/index.js";
 const options = [
   { label: "Select an option", value: "null" },
   { label: "Title", value: "title" },
@@ -29,19 +30,25 @@ class Search extends React.Component {
 
   filterItems(criteria, event) {
     if (!event) return false;
+    let list = {};
     if (criteria !== "price") {
-      return db.items.filter(item => {
+      list = db.items.filter(item => {
         return (
           item[criteria]
             .toLowerCase()
-            .indexOf(event.target.value.toLowerCase()) !== -1
+            .indexOf(event.target.value.toLowerCase()) !== -1 &&
+          event.target.value
         );
       });
     } else {
-      return db.items.filter(item => {
-        return Number(item[criteria]) >= Number(event.target.value);
+      list = db.items.filter(item => {
+        return (
+          Number(item[criteria]) >= Number(event.target.value) &&
+          event.target.value
+        );
       });
     }
+    this.props.refreshList(list);
   }
 
   renderFields(type) {
@@ -55,7 +62,6 @@ class Search extends React.Component {
             onChange={e => this.filterItems("title", e)}
           />
         );
-        break;
       case "description":
         return (
           <input
@@ -87,9 +93,14 @@ class Search extends React.Component {
     }
   }
 
+  showList() {
+    if (!this.props.list) return null;
+    return this.props.list.length ? <ListView /> : null;
+  }
+  // ================ RENDERING
+
   render() {
     const defaultOption = this.state.selected;
-    console.log("rendering...", this.state.selected);
     if (this.state.selected.value !== "null")
       this.filterItems(this.state.selected.value);
     return (
@@ -107,13 +118,18 @@ class Search extends React.Component {
         <div className="search__container">
           {this.renderFields(this.state.selected.value)}
         </div>
+        <div className="search__container">{this.showList()}</div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  list: state.list
+});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  refreshList: list => dispatch(generateList(list))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
