@@ -6,3 +6,10 @@ export const generateList = list => {
     list
   };
 };
+
+export const addFavorite = item => {
+  return {
+    type: types.ADD_FAVORITE,
+    item
+  };
+};

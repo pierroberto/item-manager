@@ -1,1 +1,2 @@
 export const GENERATE_LIST = "GENERATE_LIST";
+export const ADD_FAVORITE = "ADD_FAVORITE";

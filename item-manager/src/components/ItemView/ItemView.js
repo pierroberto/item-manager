@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./itemview.css";
+import { addFavorite } from "../../actions/index.js";
 
 class ItemView extends React.Component {
   render() {
-    console.log("props", this.props);
     return (
       <div className="itemview">
         <div className="itemview__container">
@@ -26,7 +26,10 @@ class ItemView extends React.Component {
                   Price: {this.props.price} $
                 </div>
                 <div className="itemview__email">Email: {this.props.email}</div>
-                <div className="itemview__btn" />
+                <div
+                  className="itemview__btn"
+                  onClick={() => this.props.addFavorite(this.props.item)}
+                />
               </div>
             </div>
           </div>
@@ -37,8 +40,12 @@ class ItemView extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  favorites: state.item
+});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  addFavorite: item => dispatch(addFavorite(item))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemView);

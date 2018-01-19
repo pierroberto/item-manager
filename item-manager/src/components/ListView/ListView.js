@@ -14,6 +14,7 @@ class ListView extends React.Component {
           price={item.price}
           email={item.email}
           picture={item.image}
+          item={item}
         />
       );
     });

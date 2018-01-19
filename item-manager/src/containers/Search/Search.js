@@ -28,6 +28,10 @@ class Search extends React.Component {
     this.setState({ selected: option });
   }
 
+  favorites(item) {
+    this.props.addFavorite(item);
+  }
+
   filterItems(criteria, event) {
     if (!event) return false;
     let list = {};
@@ -95,7 +99,9 @@ class Search extends React.Component {
 
   showList() {
     if (!this.props.list) return null;
-    return this.props.list.length ? <ListView /> : null;
+    return this.props.list.length ? (
+      <ListView favorites={this.favorites} />
+    ) : null;
   }
   // ================ RENDERING
 

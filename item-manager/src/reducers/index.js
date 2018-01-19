@@ -1,7 +1,8 @@
 import * as types from "../actions/types";
 
 const defaultState = {
-  list: []
+  list: [],
+  favorites: []
 };
 
 export default (state = defaultState, action) => {
@@ -10,6 +11,11 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         list: action.list
+      };
+    case types.ADD_FAVORITE:
+      return {
+        ...state,
+        favorites: [action.item, ...state.favorites]
       };
     default:
       return state;
