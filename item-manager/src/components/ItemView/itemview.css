@@ -1,0 +1,76 @@
+.itemview {
+}
+
+.itemview__btn::before {
+  position: absolute;
+  content: "ADD";
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.itemview__btn {
+  margin: 10px 0;
+  position: relative;
+  height: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: lime;
+  padding: 10px;
+  width: 50%;
+  border-radius: 5px;
+  transition: opacity 0.1s;
+}
+
+.itemview__btn:hover {
+  opacity: 0.5;
+}
+
+.itemview__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.itemview__description {
+}
+
+.itemview__email {
+}
+
+.itemview__info {
+  max-width: 900px;
+  margin: 0 10px;
+  line-height: 1.5em;
+}
+
+.itemview__picture {
+  display: flex;
+}
+
+.itemview__price {
+  padding-top: 5px;
+}
+
+.itemview__title {
+  text-align: center;
+  font-size: 1.5em;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.itemview__separator {
+  position: relative;
+  margin: 10px 0;
+  height: 1px;
+  background-color: #ccc;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+}
+
+.itemview__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
