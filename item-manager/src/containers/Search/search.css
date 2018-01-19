@@ -7,3 +7,10 @@
 
 .search__dropdown {
 }
+
+.search__input {
+  outline: none;
+  padding: 10px 5px;
+  font-size: 1em;
+  width: 100%;
+}
