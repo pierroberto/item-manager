@@ -2,11 +2,20 @@ import React from "react";
 import { connect } from "react-redux";
 import "./itemview.css";
 import { addFavorite } from "../../actions/index.js";
-
+// import Favorites from "../../containers/Favorites/Favorites";
 class ItemView extends React.Component {
+  // renderFavorites() {
+  //   console.log("props in rendinering favorites", this.props.toggleFavorites);
+  //   if (this.props.toggleFavorites) {
+  //     console.log("it should render");
+  //     return <Favorites />;
+  //   } else return null;
+  // }
   render() {
+    console.log("rednering itemview...");
     return (
       <div className="itemview">
+        {/* {this.renderFavorites()} */}
         <div className="itemview__container">
           <div className="itemview__content">
             <div className="itemview__wrapper">
@@ -27,7 +36,11 @@ class ItemView extends React.Component {
                 </div>
                 <div className="itemview__email">Email: {this.props.email}</div>
                 <div
-                  className="itemview__btn"
+                  className={
+                    this.props.buttonType
+                      ? `itemview__btn itemview__btn-${this.props.buttonType}`
+                      : `itemview__btn`
+                  }
                   onClick={() => this.props.addFavorite(this.props.item)}
                 />
               </div>
@@ -41,7 +54,9 @@ class ItemView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  favorites: state.item
+  favorites: state.item,
+  buttonType: state.buttonType,
+  toggleFavorites: state.flag
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -13,3 +13,17 @@ export const addFavorite = item => {
     item
   };
 };
+
+export const setButtonType = buttonType => {
+  return {
+    type: types.DEL_BUTTON,
+    buttonType
+  };
+};
+
+export const toggleFavorites = toggleFavorites => {
+  return {
+    type: types.TOGGLE_FAVORITES,
+    toggleFavorites
+  };
+};

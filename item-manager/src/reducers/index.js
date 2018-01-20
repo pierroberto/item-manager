@@ -2,7 +2,9 @@ import * as types from "../actions/types";
 
 const defaultState = {
   list: [],
-  favorites: []
+  favorites: [],
+  buttonType: null,
+  toggleFavorites: false
 };
 
 export default (state = defaultState, action) => {
@@ -16,6 +18,16 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         favorites: [action.item, ...state.favorites]
+      };
+    case types.DEL_BUTTON:
+      return {
+        ...state,
+        buttonType: action.buttonType
+      };
+    case types.TOGGLE_FAVORITES:
+      return {
+        ...state,
+        toggleFavorites: action.toggleFavorites
       };
     default:
       return state;

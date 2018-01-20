@@ -19,13 +19,29 @@ class ListView extends React.Component {
       );
     });
   }
+
+  checkType() {
+    console.log("type of list", this.props.type);
+    switch (this.props.type) {
+      case "list":
+        return this.renderItems(this.props.list);
+      case "favorites":
+        return this.renderItems(this.props.favorites);
+      default:
+        break;
+    }
+  }
+
   render() {
-    return <div className="listview">{this.renderItems(this.props.list)}</div>;
+    console.log("rendering listview...");
+    return <div className="listview">{this.checkType()}</div>;
   }
 }
 
 const mapStateToProps = state => ({
-  list: state.list
+  list: state.list,
+  favorites: state.favorites,
+  toggleFavorites: state.flag
 });
 
 const mapDispatchToProps = dispatch => ({});

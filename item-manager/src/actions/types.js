@@ -1,2 +1,4 @@
 export const GENERATE_LIST = "GENERATE_LIST";
 export const ADD_FAVORITE = "ADD_FAVORITE";
+export const TOGGLE_FAVORITES = "TOGGLE_FAVORITES";
+export const DEL_BUTTON = "DEL_BUTTON";

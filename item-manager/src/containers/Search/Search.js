@@ -99,9 +99,7 @@ class Search extends React.Component {
 
   showList() {
     if (!this.props.list) return null;
-    return this.props.list.length ? (
-      <ListView favorites={this.favorites} />
-    ) : null;
+    return this.props.list.length ? <ListView type="list" /> : null;
   }
   // ================ RENDERING
 
@@ -131,7 +129,9 @@ class Search extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  list: state.list
+  list: state.list,
+  buttonType: state.buttonType,
+  toggleFavorites: state.flag
 });
 
 const mapDispatchToProps = dispatch => ({

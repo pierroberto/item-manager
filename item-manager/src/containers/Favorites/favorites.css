@@ -1,0 +1,24 @@
+.favorites {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.favorites::before {
+  position: fixed;
+  font-size: 40px;
+  right: 5%;
+  top: 2%;
+  content: "X";
+}
+.favorites__container {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}

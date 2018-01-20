@@ -21,6 +21,10 @@
   transition: opacity 0.1s;
 }
 
+.itemview__btn-delFavorite {
+  background-color: blue;
+}
+
 .itemview__btn:hover {
   opacity: 0.5;
 }
