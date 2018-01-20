@@ -73,6 +73,8 @@ class ListView extends React.Component {
           onChange={e => this.handlePageChange(e)}
           innerClass="listview__list"
           itemClass="listview__item"
+          linkClass="listview__link"
+          activeClass="listview__item-active"
         />
         {this.checkType()}
       </div>
