@@ -64,9 +64,15 @@ class ListView extends React.Component {
         <Pagination
           activePage={this.state.activePage}
           itemsCountPerPage={5}
-          totalItemsCount={this.props.list.length}
+          totalItemsCount={
+            this.props.type === "list"
+              ? this.props.list.length
+              : this.props.favorites.length
+          }
           pageRangeDisplayed={5}
           onChange={e => this.handlePageChange(e)}
+          innerClass="listview__list"
+          itemClass="listview__item"
         />
         {this.checkType()}
       </div>
