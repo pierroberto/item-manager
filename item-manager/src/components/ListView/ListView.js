@@ -3,7 +3,33 @@ import { connect } from "react-redux";
 import ItemView from "../ItemView/ItemView";
 import "./listview.css";
 import id from "uniquid";
+import Pagination from "react-js-pagination";
+
 class ListView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activePage: 1
+    };
+  }
+
+  handlePageChange(pageNumber) {
+    this.setState({ activePage: pageNumber });
+    this.selectPage(this.props.list);
+  }
+
+  selectPage(fullList) {
+    let pageList = [];
+    for (
+      let i = 5 * this.state.activePage - 5;
+      i < 5 * this.state.activePage;
+      i++
+    ) {
+      if (fullList[i]) pageList.push(fullList[i]);
+    }
+    return this.renderItems(pageList);
+  }
+
   renderItems(list) {
     return list.map(item => {
       return (
@@ -21,20 +47,30 @@ class ListView extends React.Component {
   }
 
   checkType() {
-    console.log("type of list", this.props.type);
     switch (this.props.type) {
       case "list":
-        return this.renderItems(this.props.list);
+        return this.selectPage(this.props.list);
       case "favorites":
-        return this.renderItems(this.props.favorites);
+        return this.selectPage(this.props.favorites);
       default:
         break;
     }
   }
 
   render() {
-    console.log("rendering listview...");
-    return <div className="listview">{this.checkType()}</div>;
+    console.log("rendering listview...", this.state);
+    return (
+      <div className="listview">
+        <Pagination
+          activePage={this.state.activePage}
+          itemsCountPerPage={5}
+          totalItemsCount={this.props.list.length}
+          pageRangeDisplayed={5}
+          onChange={e => this.handlePageChange(e)}
+        />
+        {this.checkType()}
+      </div>
+    );
   }
 }
 
