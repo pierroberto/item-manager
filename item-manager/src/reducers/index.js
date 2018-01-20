@@ -4,7 +4,8 @@ const defaultState = {
   list: [],
   favorites: [],
   buttonType: null,
-  toggleFavorites: false
+  toggleFavorites: false,
+  filterList: null
 };
 
 export default (state = defaultState, action) => {
@@ -28,6 +29,11 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         toggleFavorites: action.toggleFavorites
+      };
+    case types.FILTER_LIST:
+      return {
+        ...state,
+        filterList: action.filterList
       };
     default:
       return state;

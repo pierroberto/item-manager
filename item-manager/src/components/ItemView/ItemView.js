@@ -54,9 +54,9 @@ class ItemView extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  list: state.list,
   favorites: state.item,
-  buttonType: state.buttonType,
-  toggleFavorites: state.flag
+  buttonType: state.buttonType
 });
 
 const mapDispatchToProps = dispatch => ({

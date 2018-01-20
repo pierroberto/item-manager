@@ -15,7 +15,6 @@ class Dashboard extends React.Component {
   }
   renderFavorites() {
     if (this.props.toggleFavorites) {
-      console.log("it should render");
       return <Favorites />;
     }
   }
@@ -58,8 +57,10 @@ class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  list: state.list,
   toggleFavorites: state.toggleFavorites,
-  buttonType: state.buttonType
+  buttonType: state.buttonType,
+  filterList: state.filterList
 });
 
 const mapDispatchToProps = dispatch => ({

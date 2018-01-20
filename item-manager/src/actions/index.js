@@ -27,3 +27,10 @@ export const toggleFavorites = toggleFavorites => {
     toggleFavorites
   };
 };
+
+export const filterList = filterList => {
+  return {
+    type: types.FILTER_LIST,
+    filterList
+  };
+};

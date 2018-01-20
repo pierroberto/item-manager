@@ -130,8 +130,7 @@ class Search extends React.Component {
 
 const mapStateToProps = state => ({
   list: state.list,
-  buttonType: state.buttonType,
-  toggleFavorites: state.flag
+  buttonType: state.buttonType
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,0 +1,32 @@
+.filter__container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.filter__item {
+  display: inline-block;
+  padding: 10px 15px;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.filter__item:first-child {
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #ddd;
+}
+
+.filter__item:hover {
+  background-color: #f4f9fc;
+}
+
+.filter__item:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.filter__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

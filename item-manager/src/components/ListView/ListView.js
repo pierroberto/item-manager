@@ -4,6 +4,7 @@ import ItemView from "../ItemView/ItemView";
 import "./listview.css";
 import id from "uniquid";
 import Pagination from "react-js-pagination";
+import Filter from "../../containers/Filter/Filter";
 
 class ListView extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class ListView extends React.Component {
   }
 
   selectPage(fullList) {
+    if (this.props.filterList) fullList = this.props.filterList;
     let pageList = [];
     for (
       let i = 5 * this.state.activePage - 5;
@@ -61,6 +63,7 @@ class ListView extends React.Component {
     console.log("rendering listview...", this.state);
     return (
       <div className="listview">
+        <Filter />
         {this.checkType()}
         <Pagination
           activePage={this.state.activePage}
@@ -85,7 +88,7 @@ class ListView extends React.Component {
 const mapStateToProps = state => ({
   list: state.list,
   favorites: state.favorites,
-  toggleFavorites: state.flag
+  filterList: state.filterList
 });
 
 const mapDispatchToProps = dispatch => ({});
