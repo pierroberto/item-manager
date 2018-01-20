@@ -61,6 +61,7 @@ class ListView extends React.Component {
     console.log("rendering listview...", this.state);
     return (
       <div className="listview">
+        {this.checkType()}
         <Pagination
           activePage={this.state.activePage}
           itemsCountPerPage={5}
@@ -76,7 +77,6 @@ class ListView extends React.Component {
           linkClass="listview__link"
           activeClass="listview__item-active"
         />
-        {this.checkType()}
       </div>
     );
   }

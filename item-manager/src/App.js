@@ -3,7 +3,6 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Search from "./containers/Search/Search";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Favorites from "./containers/Favorites/Favorites";
-import { connect } from "react-redux";
 import "./App.css";
 
 class App extends React.Component {
