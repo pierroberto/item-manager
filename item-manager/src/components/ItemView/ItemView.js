@@ -3,12 +3,27 @@ import { connect } from "react-redux";
 import {
   addFavorite,
   delFavorite,
-  toggleFavorites
+  toggleFavorites,
+  setButtonType
 } from "../../actions/index.js";
 import "./itemview.css";
 
 class ItemView extends React.Component {
+  showFavorites() {
+    if (this.props.buttonType) {
+      this.props.delFavorite(this.props.item);
+      console.log("favorites--------", this.props.favorites);
+      if (this.props.favorites.length === 1) {
+        this.props.setButtonType(null);
+        return this.props.showFavorites(false);
+      }
+      this.props.showFavorites(true);
+    } else {
+      this.props.addFavorite(this.props.item);
+    }
+  }
   renderButton() {
+    console.log("props in BUTTON", this.props);
     return (
       <div
         className={
@@ -16,14 +31,7 @@ class ItemView extends React.Component {
             ? `itemview__btn itemview__btn-${this.props.buttonType}`
             : `itemview__btn`
         }
-        onClick={() => {
-          if (this.props.buttonType) {
-            this.props.delFavorite(this.props.item);
-            this.props.showFavorites(true);
-          } else {
-            this.props.addFavorite(this.props.item);
-          }
-        }}
+        onClick={() => this.showFavorites()}
       />
     );
   }
@@ -63,7 +71,7 @@ class ItemView extends React.Component {
 
 const mapStateToProps = state => ({
   list: state.list,
-  favorites: state.item,
+  favorites: state.favorites,
   buttonType: state.buttonType,
   toggleFavorites: state.toggleFavorites
 });
@@ -71,7 +79,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addFavorite: item => dispatch(addFavorite(item)),
   delFavorite: item => dispatch(delFavorite(item)),
-  showFavorites: flag => dispatch(toggleFavorites(flag))
+  showFavorites: flag => dispatch(toggleFavorites(flag)),
+  setButtonType: type => dispatch(setButtonType(type))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemView);
