@@ -59,11 +59,16 @@ class ListView extends React.Component {
     }
   }
 
+  renderFilter() {
+    if (this.props.toggleFavorites) return <Filter title={true} />;
+    return <Filter title={true} description={true} price={true} email={true} />;
+  }
+
   render() {
     console.log("rendering listview...");
     return (
       <div className="listview">
-        <Filter />
+        {this.renderFilter()}
         {this.checkType()}
         <Pagination
           activePage={this.state.activePage}
@@ -88,7 +93,8 @@ class ListView extends React.Component {
 const mapStateToProps = state => ({
   list: state.list,
   favorites: state.favorites,
-  filterList: state.filterList
+  filterList: state.filterList,
+  toggleFavorites: state.toggleFavorites
 });
 
 const mapDispatchToProps = dispatch => ({});

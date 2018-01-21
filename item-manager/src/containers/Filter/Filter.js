@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { filterList } from "../../actions/index.js";
-
 import "./filter.css";
 
 class Filter extends React.Component {
@@ -32,27 +31,61 @@ class Filter extends React.Component {
         break;
     }
   }
+
+  renderTitle() {
+    console.log("this.props", this.props);
+    if (this.props.title) {
+      return (
+        <li className="filter__item" onClick={() => this.filterBy("title")}>
+          Title
+        </li>
+      );
+    }
+  }
+
+  renderPrice() {
+    if (this.props.price) {
+      return (
+        <li className="filter__item" onClick={() => this.filterBy("price")}>
+          Price
+        </li>
+      );
+    }
+  }
+
+  renderEmail() {
+    if (this.props.email) {
+      return (
+        <li className="filter__item" onClick={() => this.filterBy("email")}>
+          Email
+        </li>
+      );
+    }
+  }
+
+  renderDescription() {
+    if (this.props.description) {
+      return (
+        <li
+          className="filter__item"
+          onClick={() => this.filterBy("description")}
+        >
+          Description
+        </li>
+      );
+    }
+  }
+
   render() {
     console.log("rendering filter...");
     return (
       <div className="filter">
         <div className="filter__container">
           <ul className="filter__list">
-            <li className="filter__item" onClick={() => this.filterBy("title")}>
-              Title
-            </li>
-            <li className="filter__item" onClick={() => this.filterBy("price")}>
-              Price
-            </li>
-            <li className="filter__item" onClick={() => this.filterBy("email")}>
-              Email
-            </li>
-            <li
-              className="filter__item"
-              onClick={() => this.filterBy("description")}
-            >
-              Description
-            </li>
+            {this.renderTitle()}
+            {this.renderPrice()}
+            {this.renderEmail()}
+            {this.renderDescription()}
           </ul>
         </div>
       </div>
