@@ -19,24 +19,26 @@
 .dashboard__item {
   display: inline-block;
   padding: 0 5%;
+  color: #000b79;
 }
 
 .dashboard__link {
   text-decoration: none;
+  color: #000b79;
 }
 
 .dashboard__list {
   margin: 0;
   padding: 0 20px;
   display: inline-block;
-  width: 60%;
+  width: 55%;
   text-align: right;
   list-style: none;
 }
 
 .dashboard__logo {
   display: inline-block;
-  width: 40%;
+  width: 45%;
   padding: 0 10px;
 }
 

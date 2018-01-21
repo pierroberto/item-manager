@@ -27,7 +27,7 @@
 }
 
 .itemview__btn-delFavorite {
-  background-color: blue;
+  background-color: #000b79;
 }
 
 .itemview__btn:hover {
@@ -39,15 +39,22 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin: 0 10px;
 }
 
 .itemview__description {
+  display: block;
+}
+
+.itemview__hidden {
+  display: none;
 }
 
 .itemview__email {
 }
 
 .itemview__info {
+  min-width: 250px;
   max-width: 900px;
   margin: 0 10px;
   line-height: 1.5em;
@@ -65,8 +72,10 @@
 .itemview__title {
   text-align: center;
   font-size: 1.5em;
-  padding-top: 5px;
+  padding-top: 10px;
   padding-bottom: 10px;
+  font-weight: bold;
+  color: #000b79;
 }
 
 .itemview__separator {

@@ -7,7 +7,7 @@ import { toggleFavorites } from "../../actions/index.js";
 
 class Favorites extends React.Component {
   render() {
-    console.log("rednering favorites");
+    console.log("rendering favorites...");
     return (
       <div className="favorites">
         <div
@@ -28,7 +28,8 @@ class Favorites extends React.Component {
 const mapStateToProps = state => ({
   list: state.list,
   toggleFavorites: state.toggleFavorites,
-  buttonType: state.buttonType
+  buttonType: state.buttonType,
+  favorites: state.favorites
 });
 
 const mapDispatchToProps = dispatch => ({

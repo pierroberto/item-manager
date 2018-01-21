@@ -12,7 +12,6 @@ class ItemView extends React.Component {
   showFavorites() {
     if (this.props.buttonType) {
       this.props.delFavorite(this.props.item);
-      console.log("favorites--------", this.props.favorites);
       if (this.props.favorites.length === 1) {
         this.props.setButtonType(null);
         return this.props.showFavorites(false);
@@ -22,8 +21,21 @@ class ItemView extends React.Component {
       this.props.addFavorite(this.props.item);
     }
   }
+
+  renderItem(item) {
+    const text = item.charAt(0).toUpperCase() + item.slice(1);
+    return (
+      <div
+        className={
+          this.props.toggleFavorites ? "itemview__hidden" : `itemview__${item}`
+        }
+      >
+        {`${text} :`} {this.props[item]} {item === "price" ? "$" : null}
+      </div>
+    );
+  }
+
   renderButton() {
-    console.log("props in BUTTON", this.props);
     return (
       <div
         className={
@@ -51,13 +63,9 @@ class ItemView extends React.Component {
               </div>
               <div className="itemview__info">
                 <div className="itemview__title">{this.props.title}</div>
-                <div className="itemview__description">
-                  {this.props.description}
-                </div>
-                <div className="itemview__price">
-                  Price: {this.props.price} $
-                </div>
-                <div className="itemview__email">Email: {this.props.email}</div>
+                {this.renderItem("description")}
+                {this.renderItem("price")}
+                {this.renderItem("email")}
                 {this.renderButton()}
               </div>
             </div>

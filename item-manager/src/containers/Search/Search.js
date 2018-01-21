@@ -100,7 +100,9 @@ class Search extends React.Component {
 
   showList() {
     if (!this.props.list) return null;
-    return this.props.list.length ? <ListView type="list" /> : null;
+    if (this.props.list.length) {
+      return <ListView type="list" />;
+    } else return null;
   }
   // ================ RENDERING
 

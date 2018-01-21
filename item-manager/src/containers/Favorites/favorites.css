@@ -28,3 +28,15 @@
   top: 1%;
   content: "X";
 }
+
+.favorite__input {
+  padding: 10px 5px;
+  font-size: 1em;
+  outline: none;
+}
+
+.favorites__search {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
