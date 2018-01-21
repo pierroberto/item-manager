@@ -9,13 +9,14 @@ class Favorites extends React.Component {
   render() {
     console.log("rednering favorites");
     return (
-      <div
-        className="favorites"
-        onClick={() => {
-          this.props.showFavorites(false);
-          this.props.setButtonType(null);
-        }}
-      >
+      <div className="favorites">
+        <div
+          className="favorites__exit"
+          onClick={() => {
+            this.props.showFavorites(false);
+            this.props.setButtonType(null);
+          }}
+        />
         <div className="favorites__container">
           <ListView type="favorites" />
         </div>

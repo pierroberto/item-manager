@@ -19,8 +19,9 @@ class ListView extends React.Component {
     this.selectPage(this.props.list);
   }
 
-  selectPage(fullList) {
-    if (this.props.filterList) fullList = this.props.filterList;
+  selectPage(fullList, type) {
+    if (this.props.filterList && type === "list")
+      fullList = this.props.filterList;
     let pageList = [];
     for (
       let i = 5 * this.state.activePage - 5;
@@ -51,17 +52,39 @@ class ListView extends React.Component {
   checkType() {
     switch (this.props.type) {
       case "list":
-        return this.selectPage(this.props.list);
+        return this.selectPage(this.props.list, "list");
       case "favorites":
-        return this.selectPage(this.props.favorites);
+        return this.selectPage(this.props.favorites, "favorites");
       default:
         break;
     }
   }
 
   renderFilter() {
+    if (!this.props.list.length) return null;
     if (this.props.toggleFavorites) return <Filter title={true} />;
     return <Filter title={true} description={true} price={true} email={true} />;
+  }
+
+  renderPagination() {
+    if (!this.props.list.length) return null;
+    return (
+      <Pagination
+        activePage={this.state.activePage}
+        itemsCountPerPage={5}
+        totalItemsCount={
+          this.props.type === "list"
+            ? this.props.list.length
+            : this.props.favorites.length
+        }
+        pageRangeDisplayed={5}
+        onChange={e => this.handlePageChange(e)}
+        innerClass="listview__list"
+        itemClass="listview__item"
+        linkClass="listview__link"
+        activeClass="listview__item-active"
+      />
+    );
   }
 
   render() {
@@ -70,21 +93,7 @@ class ListView extends React.Component {
       <div className="listview">
         {this.renderFilter()}
         {this.checkType()}
-        <Pagination
-          activePage={this.state.activePage}
-          itemsCountPerPage={5}
-          totalItemsCount={
-            this.props.type === "list"
-              ? this.props.list.length
-              : this.props.favorites.length
-          }
-          pageRangeDisplayed={5}
-          onChange={e => this.handlePageChange(e)}
-          innerClass="listview__list"
-          itemClass="listview__item"
-          linkClass="listview__link"
-          activeClass="listview__item-active"
-        />
+        {this.renderPagination()}
       </div>
     );
   }

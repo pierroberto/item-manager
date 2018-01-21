@@ -21,6 +21,11 @@
   transition: opacity 0.1s;
 }
 
+.itemview__btn-delFavorite::before {
+  content: "DELETE";
+  color: #fff;
+}
+
 .itemview__btn-delFavorite {
   background-color: blue;
 }
@@ -50,6 +55,7 @@
 
 .itemview__picture {
   display: flex;
+  max-width: 100%;
 }
 
 .itemview__price {

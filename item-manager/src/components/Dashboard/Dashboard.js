@@ -26,15 +26,18 @@ class Dashboard extends React.Component {
         <div className="dashboard__container">
           <div className="dashboard__logo">
             <div className="dashboard__logoicon">
-              <FontAwesome className="dashboard__home" name="home" size="2x" />
+              <Link to={"/"}>
+                <FontAwesome
+                  className="dashboard__home"
+                  name="home"
+                  size="2x"
+                />
+              </Link>
             </div>
             <div className="dashboard__logotext">Item Manager</div>
           </div>
           <ul className="dashboard__list">
-            <li
-              className="dashboard__item"
-              onClick={() => this.props.showFavorites(false)}
-            >
+            <li className="dashboard__item">
               <Link className="dashboard__link" to={"/search"}>
                 Search
               </Link>

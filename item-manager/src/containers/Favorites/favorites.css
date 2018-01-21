@@ -2,17 +2,10 @@
   position: fixed;
   height: 100vh;
   width: 100%;
-  z-index: 100;
+  z-index: 1;
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.favorites::before {
-  position: fixed;
-  font-size: 40px;
-  right: 5%;
-  top: 2%;
-  content: "X";
-}
 .favorites__container {
   position: fixed;
   background-color: rgba(255, 255, 255, 1);
@@ -20,8 +13,18 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  min-width: 300px;
+  width: 70%;
   max-height: 100%;
   overflow-y: auto;
   overflow: scroll;
+}
+
+.favorites__exit::before {
+  position: fixed;
+  font-size: 40px;
+  color: #aaa;
+  right: 2%;
+  top: 1%;
+  content: "X";
 }

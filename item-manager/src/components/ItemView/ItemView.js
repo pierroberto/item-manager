@@ -1,9 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addFavorite, delFavorite } from "../../actions/index.js";
+import {
+  addFavorite,
+  delFavorite,
+  toggleFavorites
+} from "../../actions/index.js";
 import "./itemview.css";
 
 class ItemView extends React.Component {
+  renderButton() {
+    return (
+      <div
+        className={
+          this.props.buttonType
+            ? `itemview__btn itemview__btn-${this.props.buttonType}`
+            : `itemview__btn`
+        }
+        onClick={() => {
+          if (this.props.buttonType) {
+            this.props.delFavorite(this.props.item);
+            this.props.showFavorites(true);
+          } else {
+            this.props.addFavorite(this.props.item);
+          }
+        }}
+      />
+    );
+  }
   render() {
     console.log("rednering itemview...");
     return (
@@ -27,18 +50,7 @@ class ItemView extends React.Component {
                   Price: {this.props.price} $
                 </div>
                 <div className="itemview__email">Email: {this.props.email}</div>
-                <div
-                  className={
-                    this.props.buttonType
-                      ? `itemview__btn itemview__btn-${this.props.buttonType}`
-                      : `itemview__btn`
-                  }
-                  onClick={() => {
-                    this.props.buttonType
-                      ? this.props.delFavorite(this.props.item)
-                      : this.props.addFavorite(this.props.item);
-                  }}
-                />
+                {this.renderButton()}
               </div>
             </div>
           </div>
@@ -52,12 +64,14 @@ class ItemView extends React.Component {
 const mapStateToProps = state => ({
   list: state.list,
   favorites: state.item,
-  buttonType: state.buttonType
+  buttonType: state.buttonType,
+  toggleFavorites: state.toggleFavorites
 });
 
 const mapDispatchToProps = dispatch => ({
   addFavorite: item => dispatch(addFavorite(item)),
-  delFavorite: item => dispatch(delFavorite(item))
+  delFavorite: item => dispatch(delFavorite(item)),
+  showFavorites: flag => dispatch(toggleFavorites(flag))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemView);
