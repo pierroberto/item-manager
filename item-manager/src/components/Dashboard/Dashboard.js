@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
     }
   }
   render() {
-    console.log("rendering dashboard", this.props);
+    console.log("rendering dashboard...");
     return (
       <div className="dashboard">
         {this.renderFavorites()}

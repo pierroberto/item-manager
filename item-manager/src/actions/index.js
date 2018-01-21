@@ -34,3 +34,10 @@ export const filterList = filterList => {
     filterList
   };
 };
+
+export const delFavorite = item => {
+  return {
+    type: types.DEL_FAVORITE,
+    item
+  };
+};

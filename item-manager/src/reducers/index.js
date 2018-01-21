@@ -35,6 +35,19 @@ export default (state = defaultState, action) => {
         ...state,
         filterList: action.filterList
       };
+    case types.DEL_FAVORITE:
+      return {
+        ...state,
+        favorites: state.favorites.filter(item => {
+          console.log("item", item, "action", action.item);
+          return (
+            item.title !== action.item.title &&
+            item.description !== action.item.description &&
+            item.price !== action.item.price &&
+            item.email !== action.item.email
+          );
+        })
+      };
     default:
       return state;
   }

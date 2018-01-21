@@ -3,3 +3,4 @@ export const ADD_FAVORITE = "ADD_FAVORITE";
 export const TOGGLE_FAVORITES = "TOGGLE_FAVORITES";
 export const DEL_BUTTON = "DEL_BUTTON";
 export const FILTER_LIST = "FILTER_LIST";
+export const DEL_FAVORITE = "DEL_FAVORITE";

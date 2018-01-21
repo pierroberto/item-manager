@@ -8,7 +8,6 @@ import { toggleFavorites } from "../../actions/index.js";
 class Favorites extends React.Component {
   render() {
     console.log("rednering favorites");
-
     return (
       <div
         className="favorites"
