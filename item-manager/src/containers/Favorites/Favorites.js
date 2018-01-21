@@ -26,6 +26,7 @@ class Favorites extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  list: state.list,
   toggleFavorites: state.toggleFavorites,
   buttonType: state.buttonType
 });

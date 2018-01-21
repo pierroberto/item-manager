@@ -6,7 +6,7 @@ import "./dropdown.css";
 import db from "../../items.json";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import ListView from "../../components/ListView/ListView";
-import { generateList } from "../../actions/index.js";
+import { generateList, filterList } from "../../actions/index.js";
 const options = [
   { label: "Select an option", value: "null" },
   { label: "Title", value: "title" },
@@ -52,6 +52,7 @@ class Search extends React.Component {
         );
       });
     }
+    this.props.filterList(null);
     this.props.refreshList(list);
   }
 
@@ -134,7 +135,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  refreshList: list => dispatch(generateList(list))
+  refreshList: list => dispatch(generateList(list)),
+  filterList: list => dispatch(filterList(list))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
