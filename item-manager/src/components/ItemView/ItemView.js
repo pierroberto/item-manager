@@ -48,7 +48,6 @@ class ItemView extends React.Component {
     );
   }
   render() {
-    console.log("rednering itemview...");
     return (
       <div className="itemview">
         <div className="itemview__container">

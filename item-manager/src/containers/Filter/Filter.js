@@ -33,7 +33,6 @@ class Filter extends React.Component {
   }
 
   renderTitle() {
-    console.log("this.props", this.props);
     if (this.props.title) {
       return (
         <li className="filter__item" onClick={() => this.filterBy("title")}>
@@ -77,7 +76,6 @@ class Filter extends React.Component {
   }
 
   render() {
-    console.log("rendering filter...");
     return (
       <div className="filter">
         <div className="filter__container">

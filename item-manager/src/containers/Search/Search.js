@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import Dropdown from "react-dropdown";
-import "./search.css";
-import "./dropdown.css";
 import db from "../../items.json";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import ListView from "../../components/ListView/ListView";
 import { generateList, filterList } from "../../actions/index.js";
+import "./search.css";
+import "./dropdown.css";
+
 const options = [
   { label: "Select an option", value: "null" },
   { label: "Title", value: "title" },

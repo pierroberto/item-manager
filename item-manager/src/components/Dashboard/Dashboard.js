@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { toggleFavorites } from "../../actions/index.js";
 import Favorites from "../../containers/Favorites/Favorites";
 import { setButtonType } from "../../actions";
-
 import "./dashboard.css";
 
 class Dashboard extends React.Component {
@@ -19,7 +18,6 @@ class Dashboard extends React.Component {
     }
   }
   render() {
-    console.log("rendering dashboard...");
     return (
       <div className="dashboard">
         {this.renderFavorites()}
@@ -60,7 +58,6 @@ class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  list: state.list,
   toggleFavorites: state.toggleFavorites,
   buttonType: state.buttonType
 });

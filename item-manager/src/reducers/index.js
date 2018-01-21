@@ -39,7 +39,6 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         favorites: state.favorites.filter(item => {
-          console.log("item", item, "action", action.item);
           return (
             item.title !== action.item.title &&
             item.description !== action.item.description &&

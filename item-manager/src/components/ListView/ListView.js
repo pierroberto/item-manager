@@ -88,7 +88,6 @@ class ListView extends React.Component {
   }
 
   render() {
-    console.log("rendering listview...");
     return (
       <div className="listview">
         {this.renderFilter()}
